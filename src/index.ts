@@ -295,6 +295,11 @@ process.on("SIGUSR2", async () => {
             description: "Set seccomp of container",
             requiresArg: false,
         })
+        .option("apparmor", {
+            type: "string",
+            description: "Set apparmor of container",
+            requiresArg: false,
+        })
         .option("ca-file", {
             type: "string",
             description: "Path to custom CA certificate file to mount in containers",

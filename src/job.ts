@@ -1050,6 +1050,10 @@ If you know what you're doing and would like to suppress this warning, use one o
                 dockerCmd += `--security-opt seccomp=${Utils.safeBashString(this.argv.seccomp)} `;
             }
 
+            if (this.argv.apparmor) {
+                dockerCmd += `--security-opt apparmor=${Utils.safeBashString(this.argv.apparmor)} `;
+            }
+
             if (this.argv.caFile) {
                 const caFilePath = path.isAbsolute(this.argv.caFile) ? this.argv.caFile : path.resolve(this.argv.cwd, this.argv.caFile);
                 if (await fs.pathExists(caFilePath)) {
@@ -1654,6 +1658,10 @@ If you know what you're doing and would like to suppress this warning, use one o
 
         if (this.argv.seccomp) {
             dockerCmd += `--security-opt seccomp=${Utils.safeBashString(this.argv.seccomp)} `;
+        }
+
+        if (this.argv.apparmor) {
+            dockerCmd += `--security-opt apparmor=${Utils.safeBashString(this.argv.apparmor)} `;
         }
 
 

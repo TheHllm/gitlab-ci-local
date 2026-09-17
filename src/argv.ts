@@ -199,6 +199,9 @@ export class Argv {
 
     get seccomp (): string | null { return this.map.get("seccomp") ?? null; }
 
+    get apparmor (): string | null { return this.map.get("apparmor") ?? null; }
+
+
     get caFile (): string | null {
         return this.map.get("caFile") ?? null;
     }
